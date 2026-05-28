@@ -1,0 +1,103 @@
+
+.post-list {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  padding: 0 10px;
+}
+
+.post-list__container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.post-list__item {
+  padding: 20px 20px 25px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px -3px;
+  background-color: var(--bg-secondary);
+} 
+
+.post-list__item-img {
+  width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.post-list__item-comment {
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.post-list__item-actions {
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Dropdown Comments */
+.post-list__comments {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.post-list__comments-form {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.post-list__comments-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: indigo;
+  color: white;
+  font-weight: 500;
+}
+
+.post-list__comments-btn:hover {
+  opacity: 0.8;
+}
+
+/* comment list */
+.post-list__comments-list {
+  width: 100%;
+  padding: 0px 50px 0px 30px;
+}
+
+.post-list__comment-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-list__comment-time {
+  font-size: 12px;
+  color: gray;
+}
+
+.post-list__comment-body {
+  width: 100%;
+  margin-top: 5px;
+  padding-left: 35px;
+}
+
+.post-list__comment-text {
+  font-size: 13px;
+  line-height: 1.4;
+}

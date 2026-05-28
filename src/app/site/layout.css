@@ -1,0 +1,26 @@
+.site-layout {
+  min-height: 100vh;
+}
+
+.site-layout__container {
+  width: min(100%, 1480px);
+  min-height: calc(100vh - var(--header-height));
+
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 25px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.site-layout__wrapper {
+  flex: 1;
+  margin-top: 20px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.site-layout__main {
+  flex: 1;
+}

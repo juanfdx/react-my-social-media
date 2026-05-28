@@ -1,0 +1,203 @@
+/* We reset the margins and paddings of all elements */
+
+
+:root {
+  --color-primary  : #181818;
+  --color-secondary: #FFFFFF;
+  --color-indigo   : indigo;
+  --color-error    : #dc3232;
+
+  --color-placeholder: #a1a1a5;
+
+  --bg-selection-color: #6770f6;
+  --bg-primary  : #f4f3f1;
+  --bg-secondary: #FFFFFF;
+  --bg-input    : #FFFFFF;
+  --bg-indicator: lightgreen;
+  --bg-list-item: #f4f4f4;
+  --bg-indigo   : indigo;
+
+  --border-input : indigo;
+  --border-avatar: lightgray;
+  --border-gray  : gray;
+
+  --header-height: 70px;
+
+  /* --border-form-control: #bfbfc4; */
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --color-primary  : #FFFFFF;
+  --color-secondary: #181818;
+  --color-indigo   : white;
+  --color-error    : #f04848;
+
+  --color-placeholder: #bfbfc4;
+
+  --bg-primary  : #0F1826;
+  --bg-secondary: #1D2936;
+  --bg-input    : #364150;
+  --bg-indicator: #00AB24;
+  --bg-list-item: #26303c;
+  --bg-indigo   : rgb(124, 47, 180);
+
+  --border-input : #bfbfc4;
+  --border-avatar: #0F1826;
+  --border-gray  : lightgray;
+}
+
+/* We reset the margins and paddings of all labels */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video , button, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* We avoid problems with images */
+img, picture, video, iframe, figure {
+  /* max-width: 100%; */
+  width: 100%;
+  display: block;
+  /* optional */ object-fit: cover;
+  /* optional */ object-position: center center;
+}
+
+/* We reset the links to function as boxes... */
+a {
+  display: block;
+}
+
+
+/* ...except those within paragraphs */
+p a {
+  display: inline;
+}
+
+
+/* We remove the dots from the <li> */
+li {
+  list-style-type: none;
+}
+
+
+/* We configure soft anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* We deactivate default styles of the main text labels */
+h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color:inherit;
+}
+
+
+/* We avoid problems with quotes pseudo-elements */
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+/* We configure the text we select */
+::selection {
+  color: var(--color-secondary);
+  background-color: var(--bg-selection-color);
+}
+
+
+/* We level typography and form placement problems */
+form , input, textarea, select , button , label{
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  display: block;
+  color:inherit;
+  box-sizing: border-box;
+  /* optional */ appearance: none;
+  
+}
+
+
+/* We reset the tables */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* We avoid problems with SVGs */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+
+/* We configure the typography for the entire website */
+body {
+  min-height  : 100vh;
+  font-size   : 100%;
+  font-family: 'Outfit', 'Segoe UI', 'Segoe UI Symbol', sans-serif;
+  color       : var(--color-primary);
+  background-color: var(--bg-primary);
+  /* optional */ line-height: 1.3;
+  /* optional */ hyphens: auto;
+  /* optional */ font-smooth: always;
+  /* optional */ -webkit-font-smoothing: antialiased;
+  /* optional */ -moz-osx-font-smoothing: grayscale;
+
+}
+
+
+/* reset inputs */
+input, textarea, select {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  background: none;
+  outline: none; /* Remove focus outline */
+  box-shadow: none; /* Remove any box-shadow */
+  font: inherit; /* Inherit the font properties from the parent */
+  color: inherit; /* Inherit the text color */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+
+/* ---- remove the up and down arrows ---- */
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

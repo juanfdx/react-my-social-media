@@ -1,0 +1,17 @@
+.toggle-theme-button {
+
+}
+
+.toggle-theme-button:hover {
+
+}
+
+.toggle-theme-button:focus {
+
+}
+
+.toggle-theme-button__icon {
+  width: 24px;
+  height: 24px;
+  fill: red;
+}

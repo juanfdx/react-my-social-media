@@ -1,0 +1,90 @@
+
+.user-profile-badge {
+  position: relative;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.user-profile-badge--big {
+  gap: 8px;
+}
+
+.user-profile-badge__initials {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border: 1px solid var(--border-avatar);
+  border-radius: 50%;
+  font-size: 13px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-badge__initials--big {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  font-size: 16px;
+}
+
+.user-profile-badge__img {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-avatar);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile-badge__indicator {
+  position: absolute;
+  top: -2px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--bg-indicator);
+}
+
+.user-profile-badge__img--big {
+  width: 36px;
+  height: 36px;
+}
+
+.user-profile-badge__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-profile-badge__name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.user-profile-badge__name--big {
+  font-size: 16px;
+}
+
+.user-profile-badge__name--in-header {
+  display: none;
+}
+
+
+.user-profile-badge__timestamp {
+  font-size: 12px;
+  color: gray;
+}
+
+
+/* ======= Media Queries ======= */
+
+@media (width >= 768px) { 
+  .user-profile-badge__name--in-header {
+    display: block;
+  }
+}

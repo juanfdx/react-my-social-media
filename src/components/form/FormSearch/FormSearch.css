@@ -1,0 +1,36 @@
+
+
+.form-search {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.form-search__input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  color: var(--color-primary);
+  background-color: var(--bg-input);
+  border: 2px solid var(--border-input);
+  border-radius: 5px;
+}
+
+.form-search__input:focus {  
+  box-shadow: 0 0 0 2px rgba(75, 0, 130, 0.2);
+}
+
+.form-search__input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.form-search__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

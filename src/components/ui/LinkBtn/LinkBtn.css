@@ -1,0 +1,14 @@
+
+
+.link-btn {
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.link-btn__label {
+  font-size: 14px;
+}
