@@ -75,7 +75,11 @@
 /* comment list */
 .post-list__comments-list {
   width: 100%;
-  padding: 0px 50px 0px 30px;
+  padding: 0px 40px 0px 20px;
+}
+
+.post-list__comments-list:last-child {
+  margin-bottom: 5px;
 }
 
 .post-list__comment-header {

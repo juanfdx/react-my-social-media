@@ -10,3 +10,10 @@ Post
 Comment
  ├── belongs to ──> User
  └── belongs to ──> Post
+
+
+
+ Post
+ ├── author (User)
+ └── comments[]
+       └── author (User)

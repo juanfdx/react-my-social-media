@@ -6,37 +6,52 @@ import { LinkBtn } from '../../ui/LinkBtn/LinkBtn'
 import { FormInput } from '../../form/FormInput/FormInput'
 import { posts } from '../../../data/posts'
 import { comments } from '../../../data/comments'
+import { users } from '../../../data/users'
+import { getPostsWithUsersAndComments } from '../../../services/post/get-posts-with-users-comments'
 
 
 
 export const PostList = () => {
 
-  const [favoriteId, setFavoriteId] = useState('');
-  const [openCommentsId, setOpenCommentsId] = useState<string | null>(null);
+  const postsResponse = getPostsWithUsersAndComments(posts, users, comments);
 
-  const handleFavorite = (id: string) => {
+  const [favoriteId, setFavoriteId] = useState('');
+  const [openCommentsIds, setOpenCommentsIds] = useState<Set<string>>(
+  () => new Set()
+);
+
+  const toggleFavorite = (id: string) => {
     if (favoriteId === id) setFavoriteId(''); 
     else setFavoriteId(id);
   }
 
   const toggleComments = (postId: string) => {
-    setOpenCommentsId(prev => (prev === postId ? null : postId));
-  };
+    setOpenCommentsIds(prev => {
+      const newSet = new Set(prev);
 
+      if (newSet.has(postId)) {
+        newSet.delete(postId); // close if already open
+      } else {
+        newSet.add(postId); // open if closed
+      }
+
+      return newSet;
+    });
+  };
 
 
   return (
     <div className='post-list'>
       <div className='post-list__container'>
 
-        {posts.map(post => (
+        {postsResponse.map(post => (
 
           <div className='post-list__item' key={post.id}>
 
-            <Link to={`/profile/${post.user.id}`}>
+            <Link to={`/profile/${post.author.id}`}>
               <UserProfileBadge 
-                name={post.user.name} 
-                avatarUrl={post.user.image || ''} 
+                name={post.author.name} 
+                avatarUrl={post.author.image || ''} 
                 big 
                 timestamp={post.createdAt} 
               />
@@ -45,14 +60,14 @@ export const PostList = () => {
             <p className='post-list__item-comment'>{post.comment}...</p>
 
             <div className='post-list__item-img-container'>
-              <img className='post-list__item-img' src={post.image} alt={post.user.name} />
+              <img className='post-list__item-img' src={post.image} alt={post.author.name} />
             </div>
 
             <div className='post-list__item-actions'>
               <LinkBtn 
                 iconName={favoriteId === post.id ? 'liked' : 'like'} 
                 label='Likes' 
-                onClick={() => handleFavorite(post.id)} 
+                onClick={() => toggleFavorite(post.id)} 
               />
               <LinkBtn 
                 iconName='comment' 
@@ -64,7 +79,7 @@ export const PostList = () => {
 
 
             {/* ADD COMMENT INPUT */}
-            {openCommentsId === post.id && (
+            {openCommentsIds.has(post.id)  && (
 
               <div className="post-list__comments">
                 <div className="post-list__comments-form">
@@ -85,13 +100,15 @@ export const PostList = () => {
                 </div>
 
                 {/* COMMENTS LIST */}
-                {comments?.map(comment => (
+                {post.comments?.map(comment => (
                   <div key={comment.id} className="post-list__comments-list">
                     <div className="post-list__comment-header">
-                      <UserProfileBadge 
-                        name={comment.user.name} 
-                        avatarUrl={comment.user.image || ''} 
-                      />
+                      <Link to={`/profile/${comment.author.id}`}>
+                        <UserProfileBadge 
+                          name={comment.author.name} 
+                          avatarUrl={comment.author.image || ''} 
+                        />
+                      </Link>
                       <span className='post-list__comment-time'>{comment.createdAt}</span>
                     </div>
                     <div className="post-list__comment-body">

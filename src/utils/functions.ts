@@ -53,8 +53,3 @@ export const avatarColor = (name: string): string => {
 
   return COLORS[hash % COLORS.length];
 };
-
-
-/*====================================================================
-  GET POST WITH USER AND COMMENTS DATA
-=====================================================================*/
