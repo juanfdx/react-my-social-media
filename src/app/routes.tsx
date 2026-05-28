@@ -11,9 +11,12 @@ import { Register } from './auth/Register/Register';
 import { Dashboard } from './admin/Dashboard/Dashboard';
 import { ErrorPage } from './ErrorPage/ErrorPage';
 import { NotFound } from './NotFound/NotFound';
+// Loaders
+import { homeLoader } from './site/Home/loader';
 // Actions
 import { loginAction } from './auth/Login/action';
 import { registerAction } from './auth/Register/action';
+import { profileLoader } from './site/Profile/loader';
 
 
 
@@ -26,10 +29,16 @@ export const router = createBrowserRouter([
       {
         index: true, 
         element: <Home />,  
+        loader: homeLoader
+      },
+      {
+        path: 'profile',
+        element: <Navigate to="/" replace />
       },
       {
         path: 'profile/:userId',
         element: <Profile />,
+        loader: profileLoader
       }
     ]
   },

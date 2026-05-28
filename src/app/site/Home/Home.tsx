@@ -1,25 +1,19 @@
 import './Home.css'
-import { useSessionStore } from '../../../stores/useSessionStore';
 import { StorySlider } from '../../../components/stories/StorySlider/StorySlider'
 import { PostList } from '../../../components/posts/PostList/PostList'
+import { useLoaderData } from 'react-router-dom';
 
 
 export const Home = () => {
 
-  const setUser = useSessionStore((s) => s.setUser);
+  const { posts } = useLoaderData();
 
-  setUser({
-    id: '1',
-    name: 'John Doe',
-    email: 'johndoe@me.com',
-    avatarUrl: 'https://i.pravatar.cc/50?u=2',
-  });
 
   return (
     <div className='home'>
       <StorySlider />
 
-      <PostList />
+      <PostList posts={posts} />
     </div>
     
   )

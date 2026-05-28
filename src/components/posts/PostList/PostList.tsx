@@ -1,19 +1,18 @@
 import './PostList.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import type { PostWithAuthorAndComments } from '../../../types/postResponses'
 import { UserProfileBadge } from '../../ui/UserProfileBadge/UserProfileBadge'
 import { LinkBtn } from '../../ui/LinkBtn/LinkBtn'
 import { FormInput } from '../../form/FormInput/FormInput'
-import { posts } from '../../../data/posts'
-import { comments } from '../../../data/comments'
-import { users } from '../../../data/users'
-import { getPostsWithUsersAndComments } from '../../../services/post/get-posts-with-users-comments'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
+interface Props {
+  posts: PostWithAuthorAndComments[]
+}
 
 
-
-export const PostList = () => {
-
-  const postsResponse = getPostsWithUsersAndComments(posts, users, comments);
+export const PostList = ({ posts }: Props) => {
 
   const [favoriteId, setFavoriteId] = useState('');
   const [openCommentsIds, setOpenCommentsIds] = useState<Set<string>>(
@@ -44,18 +43,24 @@ export const PostList = () => {
     <div className='post-list'>
       <div className='post-list__container'>
 
-        {postsResponse.map(post => (
+        {posts.map(post => (
 
           <div className='post-list__item' key={post.id}>
 
-            <Link to={`/profile/${post.author.id}`}>
-              <UserProfileBadge 
-                name={post.author.name} 
-                avatarUrl={post.author.image || ''} 
-                big 
-                timestamp={post.createdAt} 
-              />
-            </Link>
+            <div className='post-list__item-header'>
+              <Link to={`/profile/${post.author.id}`}>
+                <UserProfileBadge 
+                  name={post.author.name} 
+                  avatarUrl={post.author.image || ''} 
+                  big 
+                  timestamp={post.createdAt} 
+                />
+              </Link>
+
+              <button className='post-list__item-menu'>
+                <MoreHorizIcon />
+              </button>  
+            </div>
             
             <p className='post-list__item-comment'>{post.comment}...</p>
 

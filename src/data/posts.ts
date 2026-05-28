@@ -3,6 +3,7 @@ import mountainWoman from '../assets/images/stories/mountains-woman.webp'
 import snowCouple from '../assets/images/stories/snow-couple.webp'
 import snowBiking from '../assets/images/stories/snow-biking.webp'
 import alpsMountain from '../assets/images/stories/alps-photo.webp'
+import skydiving from '../assets/images/stories/skydive-student.webp'
 
 export interface Post {
   id: string
@@ -48,5 +49,12 @@ export const posts: Post [] = [
     userId: '5',
     image: mountainWoman, 
     createdAt: '5h ago' 
+  },
+  { 
+    id: '6', 
+    comment: 'That jump looked absolutely incredible', 
+    userId: '1',
+    image: skydiving, 
+    createdAt: '4h ago' 
   },
 ]
